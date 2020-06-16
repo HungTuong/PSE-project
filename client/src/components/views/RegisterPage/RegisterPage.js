@@ -43,6 +43,7 @@ function RegisterPage(props) {
         email: '',
         lastName: '',
         name: '',
+        username:'',
         password: '',
         confirmPassword: ''
       }}
@@ -51,6 +52,8 @@ function RegisterPage(props) {
           .required('Name is required'),
         lastName: Yup.string()
           .required('Last Name is required'),
+        username: Yup.string()
+          .required('Username is required'),
         email: Yup.string()
           .email('Email is invalid')
           .required('Email is required'),
@@ -69,6 +72,7 @@ function RegisterPage(props) {
             password: values.password,
             name: values.name,
             lastname: values.lastname,
+            username: values.username,
             image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`
           };
 
@@ -132,6 +136,23 @@ function RegisterPage(props) {
                 />
                 {errors.lastName && touched.lastName && (
                   <div className="input-feedback">{errors.lastName}</div>
+                )}
+              </Form.Item>
+              
+              <Form.Item required label="Username">
+                <Input
+                  id="username"
+                  placeholder="Enter your Username"
+                  type="text"
+                  value={values.username}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={
+                    errors.username && touched.username ? 'text-input error' : 'text-input'
+                  }
+                />
+                {errors.username && touched.username && (
+                  <div className="input-feedback">{errors.username}</div>
                 )}
               </Form.Item>
 
