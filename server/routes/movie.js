@@ -95,4 +95,18 @@ router.post("/getMovies", (req, res) => {
 });
 
 
+router.get("/movies_by_id", (req, res) => {
+    let type = req.query.type
+    let movieId = req.query.id
+
+    
+    Movie.find({'_id': {$in: movieId}})
+    .populate('writer')
+    .exec((err, movie) => {
+        if(err) return res.status(400).send(err)
+        return res.status(200).send(movie)
+    })
+
+});
+
 module.exports = router;

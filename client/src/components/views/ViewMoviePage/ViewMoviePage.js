@@ -3,7 +3,7 @@ import Axios from 'axios'
 import { Row, Col } from 'antd';
 import MovieImage from './Sections/MovieImage';
 import MovieInfo from './Sections/MovieInfo';
-import { useDispatch } from 'react-redux';
+
 function ViewMoviePage(props) {
 
     const movieId = props.match.params.movieId
