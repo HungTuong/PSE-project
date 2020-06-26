@@ -29,8 +29,7 @@ const movieSchema = mongoose.Schema({
         default: 1
     },
     releaseDate: {
-        type: Date,
-        default: Date.now
+        type: Date
     }
 }, { timestamps: true })
 
