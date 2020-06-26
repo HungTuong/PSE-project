@@ -8,7 +8,8 @@ function Footer() {
             flexDirection: 'column', alignItems: 'center',
             justifyContent: 'center', fontSize:'1rem'
         }}>
-           <p> Happy Coding  <Icon type="smile" /></p>
+           &copy; {new Date().getFullYear()} Copyright:{' '}
+            <a href='https://www.google.com'> Logo.com </a>
         </div>
     )
 }
