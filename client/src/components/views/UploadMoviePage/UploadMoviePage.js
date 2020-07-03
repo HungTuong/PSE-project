@@ -3,6 +3,8 @@ import { Typography, Button, Form, message, Input, Icon } from 'antd';
 import FileUpload from '../../Utils/FileUpload'
 import Axios from 'axios';
 
+
+
 const { Title } = Typography;
 const { TextArea } = Input;
 
@@ -67,7 +69,7 @@ function UploadProductPage(props) {
         if (!TitleValue || !DescriptionValue || !GenreValue || 
             !LengthValue || !ReleaseDateValue ||
             !MoviesDistributorsValue || !Images) {
-            return alert('fill all the fields first!')
+            return alert('Fill all the fields first!')
         }
 
         const variables = {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Descriptions } from 'antd';
+import { Descriptions } from 'antd';
 
 function MovieInfo(props) {
     const [Movie, setMovie] = useState({})

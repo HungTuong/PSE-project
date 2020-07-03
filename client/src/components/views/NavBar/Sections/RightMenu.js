@@ -5,6 +5,8 @@ import axios from 'axios';
 import { USER_SERVER } from '../../../Config';
 import { withRouter } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import SubMenu from 'antd/lib/menu/SubMenu';
+import MenuItem from 'antd/lib/menu/MenuItem';
 
 function RightMenu(props) {
   const user = useSelector(state => state.user)
@@ -30,15 +32,30 @@ function RightMenu(props) {
         </Menu.Item>
       </Menu>
     )
-  } else {
+  }
+  else {
     return (
       <Menu mode={props.mode}>
-        <Menu.Item key="upload">
-          <a href='/movies/upload'>Upload</a>
-        </Menu.Item>
-        <Menu.Item key="logout">
-          <a onClick={logoutHandler}>Logout</a>
-        </Menu.Item>
+        {user.userData && user.userData.name &&
+          <SubMenu title={<span>Welcome {user.userData.name}!</span>}>
+            <Menu.Item key="profile">
+              <a href='/'>View profile</a>
+            </Menu.Item>
+          {user.userData && user.userData.isAdmin && 
+            <Menu.Item key="upload">
+              <a href='/movies/upload'>Upload film</a>
+            </Menu.Item> 
+          }
+          {user.userData && user.userData.isAdmin &&
+            <Menu.Item key="dashboard">
+              <a href='/'>Dashboard</a>
+            </Menu.Item>
+          }
+            <Menu.Item key="logout">
+              <a onClick={logoutHandler}>Logout</a>
+            </Menu.Item>
+          </SubMenu>
+        }
       </Menu>
     )
   }
