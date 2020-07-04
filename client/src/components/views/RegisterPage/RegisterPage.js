@@ -71,7 +71,6 @@ function RegisterPage(props) {
             email: values.email,
             password: values.password,
             name: values.name,
-            lastname: values.lastname,
             username: values.username,
             image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`
           };
@@ -119,23 +118,6 @@ function RegisterPage(props) {
                 />
                 {errors.name && touched.name && (
                   <div className="input-feedback">{errors.name}</div>
-                )}
-              </Form.Item>
-
-              <Form.Item required label="Last Name">
-                <Input
-                  id="lastName"
-                  placeholder="Enter your Last Name"
-                  type="text"
-                  value={values.lastName}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={
-                    errors.lastName && touched.lastName ? 'text-input error' : 'text-input'
-                  }
-                />
-                {errors.lastName && touched.lastName && (
-                  <div className="input-feedback">{errors.lastName}</div>
                 )}
               </Form.Item>
               

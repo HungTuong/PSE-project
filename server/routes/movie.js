@@ -99,7 +99,6 @@ router.get("/movies_by_id", (req, res) => {
     let type = req.query.type
     let movieId = req.query.id
 
-    
     Movie.find({'_id': {$in: movieId}})
     .populate('writer')
     .exec((err, movie) => {

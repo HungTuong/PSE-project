@@ -6,7 +6,6 @@ import { USER_SERVER } from '../../../Config';
 import { withRouter } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import SubMenu from 'antd/lib/menu/SubMenu';
-import MenuItem from 'antd/lib/menu/MenuItem';
 
 function RightMenu(props) {
   const user = useSelector(state => state.user)
@@ -39,11 +38,11 @@ function RightMenu(props) {
         {user.userData && user.userData.name &&
           <SubMenu title={<span>Welcome {user.userData.name}!</span>}>
             <Menu.Item key="profile">
-              <a href='/'>View profile</a>
+              <a href={`/users/update/${user.userData._id}`}>Update profile</a>
             </Menu.Item>
           {user.userData && user.userData.isAdmin && 
             <Menu.Item key="upload">
-              <a href='/movies/upload'>Upload film</a>
+              <a href='/movie/upload'>Upload film</a>
             </Menu.Item> 
           }
           {user.userData && user.userData.isAdmin &&

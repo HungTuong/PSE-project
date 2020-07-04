@@ -9,6 +9,8 @@ import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer"
 import UploadMoviePage from './views/UploadMoviePage/UploadMoviePage'
 import ViewMoviePage from './views/ViewMoviePage/ViewMoviePage';
+import UpdateProfile from './views/UpdateProfile/UpdateProfile';
+
 
 
 //null   Anyone Can go inside
@@ -24,9 +26,9 @@ function App() {
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
-          <Route exact path="/movies/upload" component={Auth(UploadMoviePage, true)} />
+          <Route exact path="/movie/upload" component={Auth(UploadMoviePage, true)} />
           <Route exact path="/movie/:movieId" component={Auth(ViewMoviePage, null)} />
-
+          <Route exact path="/users/update/:userId" component={Auth(UpdateProfile, true)} />
         </Switch>
       </div>
       <Footer />

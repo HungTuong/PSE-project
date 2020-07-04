@@ -68,4 +68,29 @@ router.get("/logout", auth, (req, res) => {
     });
 });
 
+router.get("/users_by_id", auth,(req, res) => {
+    let userId = req.query.id
+    
+    User.find({'_id': {$in: userId}})
+    .exec((err, user) => {
+        if(err) return res.status(400).send(err)
+        return res.status(200).send(user)
+    })
+
+});
+
+router.put("/users_by_id", auth, (req, res) => {
+
+    User.findOneAndUpdate({ _id: req.user._id }, req.body, {new: true},
+        (err, doc) => {
+            if (err) return res.json({ success: false, err });
+            return res.status(200).send({
+                success: true
+            });
+    });
+
+});
+
+
+
 module.exports = router;
